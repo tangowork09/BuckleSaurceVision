@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wholesale — Bucks Sauce Clone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&family=Rye&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="index.html"><img src="assets/bucks-logo.svg" alt="Bucks Sauce"></a>
+    <div class="nav-links">
+      <a href="shop.html">Shop</a>
+      <a href="wholesale.html" class="active">Wholesale</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQ</a>
+      <a href="#" data-cart-open>Cart(<span class="cart-count">0</span>)</a>
+    </div>
+    
+  </nav>
+
+  <header class="page-hero">
+    <h1>Put It on Your Shelf.<br>Or Your Menu.</h1>
+    <p class="sub">Small-batch sauce your customers will actually notice. Wholesale pricing for shops and kitchens that care what goes on the plate.</p>
+  </header>
+
+  <main class="wrap">
+    <img class="ws-img reveal" src="assets/wholesale-CTA.jpg" alt="Bottles lined up for wholesale">
+    <div class="ws-3col">
+      <div class="reveal">
+        <h3>Why?</h3>
+        <p>Clean-label, chef-made, and a story customers remember. It sells because it tastes like someone gave a damn.</p>
+      </div>
+      <div class="reveal">
+        <h3>What?</h3>
+        <p>Wholesale pricing, fast reorders, POS-ready display packs, and marketing assets that don't look like clip art.</p>
+      </div>
+      <div class="reveal">
+        <h3>Who?</h3>
+        <p>Butchers, farm stores, specialty grocers, breweries, smokehouses, and restaurants that want a sauce worth naming on the menu.</p>
+      </div>
+    </div>
+    <img class="ws-img reveal" src="assets/Philly-Sauce-Fest-Award-site.jpg" alt="Festival award">
+  </main>
+
+  <section class="reviews">
+    <h2 class="section-title">Reviews</h2>
+    <div class="marquee" id="marquee"></div>
+  </section>
+
+  <section class="bundles" style="padding-top:20px;">
+    <div class="wrap">
+      <h2 class="section-title">Sign Up Today</h2>
+      <div class="form-grid">
+        <input type="text" placeholder="Business name" required>
+        <input type="email" placeholder="Work email" required>
+        <textarea placeholder="Tell us about your shop or kitchen"></textarea>
+        <button class="btn btn-orange" onclick="alert('Wholesale form is a demo stub.')">
+          <span class="lbl">Send Inquiry</span><span class="lbl-hover">Send Inquiry</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-bottom">
+        <div>© Bucks Sauce clone — local design study.</div>
+        <div class="footer-links"><a href="index.html">Home</a><a href="shop.html">Shop</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cart-overlay"></div>
+  <aside id="cart-drawer" aria-label="Cart">
+    <div class="cart-head"><h3>Your Cart</h3><button class="cart-close" data-cart-close aria-label="Close cart">×</button></div>
+    <div id="best-value" class="best-value" style="display:none;">Best value: grab a 3-pack, save some bucks</div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>Total</span><span id="cart-total">$0.00</span></div>
+      <div id="ship-note" style="font-size:0.8rem;opacity:0.7;margin-bottom:12px;"></div>
+      <button class="btn btn-orange" onclick="alert('Checkout is a demo stub.')"><span class="lbl">Checkout</span><span class="lbl-hover">Checkout</span></button>
+    </div>
+  </aside>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

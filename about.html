@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Bucks Sauce Clone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&family=Rye&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="index.html"><img src="assets/bucks-logo.svg" alt="Bucks Sauce"></a>
+    <div class="nav-links">
+      <a href="shop.html">Shop</a>
+      <a href="wholesale.html">Wholesale</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQ</a>
+      <a href="#" data-cart-open>Cart(<span class="cart-count">0</span>)</a>
+    </div>
+    
+  </nav>
+
+  <header class="page-hero">
+    <h1>Building<br>the Flavor</h1>
+    <p class="sub">Twenty-plus years in professional kitchens, one very strong opinion: BBQ sauce got boring, and somebody had to fix it.</p>
+  </header>
+
+  <main class="wrap">
+    <img class="ws-img reveal" src="assets/BUCKSAUCE-21.jpg" alt="Chef at work">
+    <section class="manifesto reveal" style="padding:60px 0;">
+      <p>Every batch starts with a cutting board, not a spreadsheet. <em>Fruit gets chopped. Peppers get sliced. Spices get blended by hand.</em></p>
+    </section>
+    <img class="ws-img reveal" src="assets/image70.png" alt="Fresh ingredients">
+  </main>
+
+  <section class="products">
+    <div class="wrap">
+      <h2 class="section-title">Choose Your<span class="accent">Weapon</span></h2>
+      <div class="product-grid" id="about-products"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="club">
+        <h2>Join the Bucks Club</h2>
+        <p>Recipes, drops, and zero boring emails.</p>
+        <form onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Subscribed (demo).');">
+          <input type="email" placeholder="your@email.com" required>
+          <button class="btn btn-orange" type="submit"><span class="lbl">Sign Up</span><span class="lbl-hover">Sign Up</span></button>
+        </form>
+      </div>
+      <div class="footer-bottom">
+        <div>© Bucks Sauce clone — local design study.</div>
+        <div class="footer-links"><a href="index.html">Home</a><a href="shop.html">Shop</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cart-overlay"></div>
+  <aside id="cart-drawer" aria-label="Cart">
+    <div class="cart-head"><h3>Your Cart</h3><button class="cart-close" data-cart-close aria-label="Close cart">×</button></div>
+    <div id="best-value" class="best-value" style="display:none;">Best value: grab a 3-pack, save some bucks</div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>Total</span><span id="cart-total">$0.00</span></div>
+      <div id="ship-note" style="font-size:0.8rem;opacity:0.7;margin-bottom:12px;"></div>
+      <button class="btn btn-orange" onclick="alert('Checkout is a demo stub.')"><span class="lbl">Checkout</span><span class="lbl-hover">Checkout</span></button>
+    </div>
+  </aside>
+
+  <script src="js/dotlottie-player.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>renderProductCards("about-products");</script>
+</body>
+</html>

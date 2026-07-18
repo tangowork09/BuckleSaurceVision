@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ — Bucks Sauce Clone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&family=Rye&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="index.html"><img src="assets/bucks-logo.svg" alt="Bucks Sauce"></a>
+    <div class="nav-links">
+      <a href="shop.html">Shop</a>
+      <a href="wholesale.html">Wholesale</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="#" data-cart-open>Cart(<span class="cart-count">0</span>)</a>
+    </div>
+    
+  </nav>
+
+  <header class="page-hero">
+    <h1>Frequently<br>Asked Questions</h1>
+  </header>
+
+  <main class="wrap faq-list">
+    <div class="faq-item">
+      <button class="faq-q">Does it really taste that good? <span class="plus">+</span></button>
+      <div class="faq-a"><div><p>Yes. We took second place at a Philadelphia hot-sauce festival on our first try, and the reviews section writes itself. Order a bottle and settle it in your own kitchen.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is it gluten-free? <span class="plus">+</span></button>
+      <div class="faq-a"><div><p>Every flavor is gluten-free. No wheat-based thickeners, no sneaky soy sauce, no drama for your diet.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is it spicy? <span class="plus">+</span></button>
+      <div class="faq-a"><div><p>Depends on your weapon. Pineapple Sriracha is a gentle warm-up, Cherry Garlic is sweet-savory with a nudge, and Habanero Garlic means it.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Any high fructose corn syrup in here? <span class="plus">+</span></button>
+      <div class="faq-a"><div><p>None. Sweetness comes from real fruit and real sugar, not a lab. Same story for seed oils and preservatives: not invited.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I drink it? <span class="plus">+</span></button>
+      <div class="faq-a"><div><p>Legally, we must say it's a condiment. Practically, we can't stop you, and honestly we'd respect it.</p></div></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-bottom">
+        <div>© Bucks Sauce clone — local design study.</div>
+        <div class="footer-links"><a href="index.html">Home</a><a href="shop.html">Shop</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cart-overlay"></div>
+  <aside id="cart-drawer" aria-label="Cart">
+    <div class="cart-head"><h3>Your Cart</h3><button class="cart-close" data-cart-close aria-label="Close cart">×</button></div>
+    <div id="best-value" class="best-value" style="display:none;">Best value: grab a 3-pack, save some bucks</div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>Total</span><span id="cart-total">$0.00</span></div>
+      <div id="ship-note" style="font-size:0.8rem;opacity:0.7;margin-bottom:12px;"></div>
+      <button class="btn btn-orange" onclick="alert('Checkout is a demo stub.')"><span class="lbl">Checkout</span><span class="lbl-hover">Checkout</span></button>
+    </div>
+  </aside>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

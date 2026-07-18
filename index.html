@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bucks Sauce Clone — Small-Batch BBQ Sauce</title>
+  <meta name="description" content="Local rebuild study of buckssauce.com — small-batch BBQ sauce brand site.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&family=Rye&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sections.css">
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-rings">
+      <div class="ring ring-gold"></div>
+      <div class="ring ring-orange"></div>
+      <div class="ring ring-red"></div>
+      <div class="ring ring-ink"></div>
+      <div class="loader-logo">
+        <img src="assets/bucks-logo.svg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav (top of page) -->
+  <nav class="nav nav--hero">
+    <a class="nav-logo" href="index.html"><img src="assets/bucks-logo.svg" alt="Bucks Sauce"></a>
+    <div class="nav-links">
+      <a href="shop.html">Shop</a>
+      <a href="wholesale.html">Wholesale</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQ</a>
+      <a href="#" data-cart-open>Cart(<span class="cart-count">0</span>)</a>
+    </div>
+  </nav>
+
+  <!-- Scrolled mini-nav -->
+  <div class="nav-mini">
+    <a class="antler-mark" href="index.html"><img src="assets/bucks-logo.svg" alt="Bucks Sauce"></a>
+    <div class="nav-mini-right">
+      <a class="pill-btn" href="shop.html" style="text-decoration:none;display:inline-block;">Get Sauce</a>
+      <button class="icon-btn" data-cart-open aria-label="Cart">🧺</button>
+      <button class="icon-btn" id="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+  <div class="burger-menu" id="burger-menu">
+    <a href="shop.html">Shop</a>
+    <a href="wholesale.html">Wholesale</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+
+  <!-- Hero: headline + product carousel -->
+  <header class="hero2 pip">
+    <h1 class="hero2-headline">
+      <span class="outline">The BBQ Sauce</span> that makes other sauces insecure
+    </h1>
+    <div class="carousel" id="carousel">
+      <div class="car-rule">
+        <span class="lbl-left">Product N0.<span id="car-num">01</span></span>
+        <span class="lbl-right" id="car-name">Crushed Pineapple Sriracha</span>
+      </div>
+      <div class="car-stage">
+        <div class="car-line"></div>
+        <div class="car-circle" id="car-circle"></div>
+        <img class="car-chunk chunk-a" id="car-chunk-a" src="assets/pineapple-cut-3.png" alt="">
+        <div class="chunk-wrap">
+          <img id="car-chunk-b" src="assets/pineapple-cut-3.png" alt="">
+          <dotlottie-player class="chunk-face" id="car-face" src="assets/lotties/cool.json" autoplay loop></dotlottie-player>
+        </div>
+        <img class="car-bottle" id="car-bottle" src="assets/bottle-pineapple.png" alt="Bucks Sauce bottle">
+        <a class="btn car-shop" href="shop.html"><span class="lbl">Shop Now</span><span class="lbl-hover">Shop Now</span></a>
+      </div>
+      <button class="car-arrow prev" id="car-prev" aria-label="Previous product">←</button>
+      <button class="car-arrow next" id="car-next" aria-label="Next product">→</button>
+    </div>
+  </header>
+
+  <!-- Manifesto -->
+  <section class="manifesto reveal">
+    <div class="wrap">
+      <p>We make sauce with <em>real, natural ingredients</em> like it's the 1800s. Slap it on anything you grill and take full credit.</p>
+    </div>
+  </section>
+
+  <!-- Free-from: stacking plates -->
+  <section class="freefrom2">
+    <div class="ff-bg">
+      <img class="ff-cherry" src="assets/cherry.png" alt="">
+      <img class="ff-habanero" src="assets/hananero.png" alt="">
+      <img class="ff-onion" src="assets/onion.png" alt="">
+      <img class="ff-garlic" src="assets/garlic.png" alt="">
+      <img class="ff-chilli" src="assets/chilli.png" alt="">
+    </div>
+    <div class="ff-stack">
+      <div class="ff-card">
+        <div class="plate"><span>No Corn Syrup</span></div>
+        <div class="ff-body">
+          <img src="assets/no-hfc.svg" alt="">
+          <p>Sweet is fine. Lab-built sweet is not. The corn syrup stays on the shelf where we left it.</p>
+        </div>
+      </div>
+      <div class="ff-card">
+        <div class="plate"><span>No Seed Oils</span></div>
+        <div class="ff-body">
+          <img src="assets/no-seed-oils.svg" alt="">
+          <p>If the ingredient list reads like a chemistry midterm, it doesn't go in the bottle.</p>
+        </div>
+      </div>
+      <div class="ff-card">
+        <div class="plate"><span>No Additives</span></div>
+        <div class="ff-body">
+          <img src="assets/no-additifs.svg" alt="">
+          <p>No preservatives, no mystery powders, no words you need a dictionary for.</p>
+        </div>
+      </div>
+      <div class="ff-card">
+        <div class="plate"><span>Gluten Free</span></div>
+        <div class="ff-body">
+          <img src="assets/gluten-free.svg" alt="">
+          <p>No gluten, no thickening tricks, no drama. Plays nice with your diet, acts up on the grill.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Choose Your Weapon: full-bleed panels -->
+  <section class="weapon">
+    <div class="weapon-head">
+      <div class="line-1">Choose Your</div>
+      <span class="line-2">Weapon</span>
+    </div>
+    <div class="weapon-panels">
+      <div class="wpanel wpanel--gold">
+        <h3>Crushed<br>Pineapple<br>Sriracha</h3>
+        <p class="wp-tag">Pineapple up front. Heat right behind.
+Balanced like a tightrope walker.</p>
+        <img class="wp-antlers" src="assets/bucks-logo.svg" alt="">
+        <img class="wp-bottle" src="assets/bottle-pineapple.png" alt="Crushed Pineapple Sriracha bottle">
+        <div class="wp-actions">
+          <button class="wp-cart" data-add="pineapple"><span class="lbl">Add to Cart</span><span>$12.00</span></button>
+          <a class="wp-view" href="product.html?f=pineapple">View Product ↗</a>
+        </div>
+      </div>
+      <div class="wpanel wpanel--orange">
+        <h3>Crushed<br>Habanero<br>Garlic</h3>
+        <p class="wp-tag">Habanero heat. Garlic muscle.
+Zero apologies issued.</p>
+        <img class="wp-antlers" src="assets/bucks-logo.svg" alt="">
+        <img class="wp-bottle" src="assets/bottle-habanero.png" alt="Crushed Habanero Garlic bottle">
+        <div class="wp-actions">
+          <button class="wp-cart" data-add="habanero"><span class="lbl">Add to Cart</span><span>$12.00</span></button>
+          <a class="wp-view" href="product.html?f=habanero">View Product ↗</a>
+        </div>
+      </div>
+      <div class="wpanel wpanel--red">
+        <h3>Crushed<br>Cherry<br>Garlic</h3>
+        <p class="wp-tag">Sweet depth. Savory backbone.
+Cherry with calluses.</p>
+        <img class="wp-antlers" src="assets/bucks-logo.svg" alt="">
+        <img class="wp-bottle" src="assets/bottle-cherry.png" alt="Crushed Cherry Garlic bottle">
+        <div class="wp-actions">
+          <button class="wp-cart" data-add="cherry"><span class="lbl">Add to Cart</span><span>$12.00</span></button>
+          <a class="wp-view" href="product.html?f=cherry">View Product ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why: arch + numbered timeline -->
+  <section class="why2">
+    <h2 class="arc-title arc-text">Why Bucks Sauce</h2>
+    <p class="why2-sub">We make small-batch BBQ sauce because big-batch tastes like sadness. We're <strong>ending boring BBQ.</strong></p>
+
+    <div class="why-pin" id="why-pin">
+      <div class="why-sticky">
+        <div class="tickline2" id="tickline2"></div>
+        <div class="why-track" id="why-track">
+          <div class="why-step">
+            <div class="why-num">01</div>
+            <div class="why-figure">
+              <img class="base" src="assets/garlic.png" alt="">
+              <dotlottie-player src="assets/lotties/grinning.json" autoplay loop></dotlottie-player>
+            </div>
+            <div class="plate why-plate"><span>Small Batches</span></div>
+            <p class="why-copy">Small runs. No conveyor belts — slow simmering, constant taste checks, and a chef hovering over the pot like it owes him money.</p>
+          </div>
+          <div class="why-step">
+            <div class="why-num">02</div>
+            <div class="why-figure">
+              <img class="base" src="assets/garlic.png" alt="">
+              <dotlottie-player src="assets/lotties/sweating.json" autoplay loop></dotlottie-player>
+            </div>
+            <div class="plate why-plate"><span>Real Ingredients</span></div>
+            <p class="why-copy">Real fruit. Fresh peppers. No powders, no syrups, no shortcuts. Fruit gets chopped, peppers get sliced, spices get blended by hand.</p>
+          </div>
+          <div class="why-step">
+            <div class="why-num">03</div>
+            <img class="why-award" src="assets/Philly-Sauce-Fest-Award-site.jpg" alt="Festival award">
+            <div class="plate why-plate"><span>Oh, This?</span></div>
+            <p class="why-copy">Podium finish at a Philly hot-sauce festival on our very first outing. The trophy shelf has officially started.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buy a Pack: split -->
+  <section class="pack2">
+    <img class="pack-img" src="assets/PDP-food-porn-bottom-img.png" alt="Wings dripping with sauce">
+    <div class="pack-panel">
+      <h2>Buy a Pack</h2>
+      <div class="pack-sub">Save Some Bucks</div>
+      <div class="pack-toggle bundle-toggle">
+        <button class="on" data-bundle="three">3 Pack</button>
+        <button data-bundle="six">6 Pack</button>
+      </div>
+      <button class="btn btn-orange pack-cta" id="bundle-add" data-add="three">
+        <span class="lbl">Add to Cart</span><span class="lbl-hover">Add to Cart</span>
+      </button>
+      <div class="pack-card">
+        <div class="price-row" id="bundle-price">$32.00</div>
+        <h3>Crushed Pineapple Sriracha</h3>
+        <img id="bundle-img" src="assets/3-pack.png" alt="Sauce pack">
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="reviews2">
+    <h2 class="outline-huge">Reviews</h2>
+    <div class="marquee" id="marquee"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer2">
+    <div class="f-grid">
+      <div class="f-box f-logo"><img src="assets/bucks-logo.svg" alt="Bucks Sauce"></div>
+      <div class="f-box f-links">
+        <a href="shop.html">Shop</a>
+        <a href="wholesale.html">Wholesale</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="f-box f-club">
+        <h2>Join the Bucks Club</h2>
+        <p>New flavors. Restocks. Fire recipes. Merch drops.</p>
+        <form class="f-mail" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Subscribed (demo).');">
+          <input type="email" placeholder="Your email..." required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+      </div>
+      <div class="f-box f-social"><a href="https://www.instagram.com" aria-label="Instagram">◙</a></div>
+    </div>
+    <div class="f-bottom">
+      <div>© 2026. Bucks Sauce clone — local design study. Not affiliated with Bucks Sauce Co.</div>
+      <div>Rebuild study of a site by Buzzworthy</div>
+    </div>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div id="cart-overlay"></div>
+  <aside id="cart-drawer" aria-label="Cart">
+    <div class="cart-head">
+      <h3>Your Cart</h3>
+      <button class="cart-close" data-cart-close aria-label="Close cart">×</button>
+    </div>
+    <div id="best-value" class="best-value" style="display:none;">Best value: grab a 3-pack, save some bucks</div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>Total</span><span id="cart-total">$0.00</span></div>
+      <div id="ship-note" style="font-size:0.8rem;opacity:0.7;margin-bottom:12px;"></div>
+      <button class="btn btn-orange" onclick="alert('Checkout is a demo stub — wire to Shopify Storefront API.')">
+        <span class="lbl">Checkout</span><span class="lbl-hover">Checkout</span>
+      </button>
+    </div>
+  </aside>
+
+  <script src="js/dotlottie-player.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

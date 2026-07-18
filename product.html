@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product — Bucks Sauce Clone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&family=Rye&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-logo" href="index.html"><img src="assets/bucks-logo.svg" alt="Bucks Sauce"></a>
+    <div class="nav-links">
+      <a href="shop.html" class="active">Shop</a>
+      <a href="wholesale.html">Wholesale</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQ</a>
+      <a href="#" data-cart-open>Cart(<span class="cart-count">0</span>)</a>
+    </div>
+    
+  </nav>
+
+  <main class="wrap">
+    <section class="pdp-hero">
+      <div class="pdp-bottle" id="pdp-bottle">
+        <img class="front" id="pdp-front" src="assets/bottle-pineapple.png" alt="Bottle front">
+        <img class="back" id="pdp-back" src="assets/pineapple-front.png" alt="Bottle back">
+      </div>
+      <div class="pdp-info">
+        <img id="pdp-mascot" src="assets/lottie-cool-pineapple.png" alt="" style="width:80px;margin-bottom:16px;">
+        <h1 id="pdp-name"></h1>
+        <p class="tagline" id="pdp-tagline"></p>
+        <div class="price" style="font-size:1.4rem;font-weight:800;" id="pdp-price"></div>
+        <div class="taste-arc" id="pdp-taste"></div>
+        <button class="btn btn-orange" id="pdp-add" data-add="">
+          <span class="lbl">Add to Cart</span><span class="lbl-hover">Add to Cart</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="pairs reveal">
+      <h2 class="section-title" style="margin-bottom:10px;">Pairs With</h2>
+      <div class="pairs-list" id="pdp-pairs"></div>
+    </section>
+
+    <section class="food-grid reveal">
+      <img src="assets/image2.png" alt="Sauce in the pan">
+      <img src="assets/PDP-food-porn-bottom-img.png" alt="Plated food with sauce">
+    </section>
+  </main>
+
+  <section class="bundles">
+    <div class="wrap">
+      <h2 class="section-title">Buy a Pack<span class="accent">Save Some Bucks</span></h2>
+      <div class="bundle-toggle">
+        <button class="on" data-bundle="three">3 Pack</button>
+        <button data-bundle="six">6 Pack</button>
+      </div>
+      <div class="bundle-figure reveal"><img id="bundle-img" src="assets/3-pack.png" alt="Sauce pack"></div>
+      <div class="bundle-price" id="bundle-price">$32.00</div>
+      <button class="btn btn-orange" id="bundle-add" data-add="three">
+        <span class="lbl">Add to Cart</span><span class="lbl-hover">Add to Cart</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <h2 class="section-title">Reviews</h2>
+    <div class="marquee" id="marquee"></div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="club">
+        <h2>Join the Bucks Club</h2>
+        <p>Recipes, drops, and zero boring emails.</p>
+        <form onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Subscribed (demo).');">
+          <input type="email" placeholder="your@email.com" required>
+          <button class="btn btn-orange" type="submit"><span class="lbl">Sign Up</span><span class="lbl-hover">Sign Up</span></button>
+        </form>
+      </div>
+      <div class="footer-bottom">
+        <div>© Bucks Sauce clone — local design study.</div>
+        <div class="footer-links"><a href="index.html">Home</a><a href="shop.html">Shop</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cart-overlay"></div>
+  <aside id="cart-drawer" aria-label="Cart">
+    <div class="cart-head"><h3>Your Cart</h3><button class="cart-close" data-cart-close aria-label="Close cart">×</button></div>
+    <div id="best-value" class="best-value" style="display:none;">Best value: grab a 3-pack, save some bucks</div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>Total</span><span id="cart-total">$0.00</span></div>
+      <div id="ship-note" style="font-size:0.8rem;opacity:0.7;margin-bottom:12px;"></div>
+      <button class="btn btn-orange" onclick="alert('Checkout is a demo stub.')"><span class="lbl">Checkout</span><span class="lbl-hover">Checkout</span></button>
+    </div>
+  </aside>
+
+  <script src="js/dotlottie-player.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      const id = new URLSearchParams(location.search).get("f") || "pineapple";
+      const p = PRODUCTS[id] || PRODUCTS.pineapple;
+      document.title = p.flatName + " — Bucks Sauce Clone";
+      document.getElementById("pdp-front").src = p.front;
+      document.getElementById("pdp-back").src = p.back;
+      document.getElementById("pdp-mascot").src = p.mascot;
+      document.getElementById("pdp-name").innerHTML = p.name.replace(/\n/g, "<br>");
+      const colorVar = { gold: "var(--gold)", orange: "var(--orange)", red: "var(--red)" }[p.color];
+      document.getElementById("pdp-name").style.color = colorVar;
+      document.getElementById("pdp-tagline").textContent = p.tagline;
+      document.getElementById("pdp-price").textContent = "$" + p.price.toFixed(2);
+      document.getElementById("pdp-add").dataset.add = p.id;
+      document.getElementById("pdp-taste").innerHTML = p.taste
+        .map((t, i) => `<div class="step"><span class="n">${i + 1}</span><span>${t}</span></div>`).join("");
+      document.getElementById("pdp-pairs").innerHTML = p.pairs.map((x) => `<span>${x}</span>`).join("");
+    })();
+  </script>
+</body>
+</html>
