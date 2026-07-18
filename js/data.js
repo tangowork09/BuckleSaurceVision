@@ -18,7 +18,7 @@ const PRODUCTS = {
     mascot: "assets/lottie-cool-pineapple.png",
     lottie: "assets/lotties/cool.json",
     front: "assets/bottle-pineapple.png",
-    back: "assets/pineapple-front.png",
+    back: "assets/pineapple-back.png",
   },
   habanero: {
     id: "habanero",
@@ -36,7 +36,7 @@ const PRODUCTS = {
     mascot: "assets/lottie-fire-habanero.png",
     lottie: "assets/lotties/fire_breathing.json",
     front: "assets/bottle-habanero.png",
-    back: "assets/habanero-front.png",
+    back: "assets/habanero-back.png",
   },
   cherry: {
     id: "cherry",
@@ -54,7 +54,7 @@ const PRODUCTS = {
     mascot: "assets/lottie-sassy-cherry.png",
     lottie: "assets/lotties/sassy.json",
     front: "assets/bottle-cherry.png",
-    back: "assets/cherry-front.png",
+    back: "assets/cherry-back.png",
   },
 };
 

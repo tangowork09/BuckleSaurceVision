@@ -115,13 +115,6 @@ body.scrolled .nav-mini { transform: none; opacity: 1; }
 .nav-links { display: flex; gap: 28px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; }
 .nav-links a { opacity: 0.8; transition: opacity 0.2s; }
 .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--gold); }
-.nav-cta {
-  background: var(--orange); color: var(--ink);
-  border: none; padding: 12px 22px; border-radius: 999px;
-  font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem;
-  transition: transform 0.2s, background 0.2s;
-}
-.nav-cta:hover { transform: scale(1.05); background: var(--gold); }
 
 /* ============ Hero (headline + product carousel, mirrors live site) ============ */
 .hero2 { position: relative; overflow: hidden; padding-top: 120px; }
@@ -215,35 +208,6 @@ body.scrolled .nav-mini { transform: none; opacity: 1; }
   .car-arrow { width: 64px; height: 64px; }
 }
 
-/* Legacy centered hero (kept for reference) */
-.hero {
-  min-height: 100vh; position: relative;
-  display: grid; place-items: center;
-  overflow: hidden;
-}
-.hero-center { text-align: center; z-index: 2; }
-.hero-mark { font-family: var(--font-display); text-transform: uppercase; font-size: clamp(3rem, 8vw, 6rem); line-height: 0.95; }
-.hero-sub { font-family: var(--font-body); letter-spacing: 0.35em; text-transform: uppercase; font-size: 0.9rem; margin-top: 10px; color: var(--gold); }
-.hero-tagline {
-  margin-top: 28px; font-size: clamp(1rem, 2vw, 1.4rem);
-  text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.9;
-  font-weight: 600;
-}
-.hero-cta { margin-top: 32px; }
-.ingredient {
-  position: absolute; width: clamp(90px, 12vw, 180px);
-  will-change: transform;
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
-}
-.ing-1 { top: 12%; left: 30%; }
-.ing-2 { top: 18%; right: 18%; }
-.ing-3 { bottom: 16%; left: 16%; }
-.ing-4 { bottom: 20%; right: 24%; }
-.hero-scroll-hint {
-  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-  font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.5;
-}
-
 /* ============ Buttons ============ */
 .btn {
   display: inline-block; position: relative; overflow: hidden;
@@ -317,25 +281,6 @@ body.scrolled .nav-mini { transform: none; opacity: 1; }
 .card .view-link { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; }
 .card .view-link:hover { opacity: 1; }
 
-/* ============ Why section ============ */
-.why { padding: 120px 0; background: var(--ink-2); position: relative; }
-.why::before {
-  content: ""; position: absolute; inset: 0;
-  background: url("../assets/antler-pattern.webp") repeat;
-  background-size: 71px 119px; opacity: 0.06; pointer-events: none;
-}
-.why .wrap { position: relative; }
-.why-title { text-align: center; font-size: clamp(2.4rem, 7vw, 5rem); margin-bottom: 30px; }
-.why-title span { display: inline-block; }
-.why-manifesto {
-  text-align: center; max-width: 760px; margin: 0 auto 80px;
-  text-transform: uppercase; font-weight: 700; font-size: 1.2rem; line-height: 1.6;
-}
-.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 48px; }
-.why-item .num { font-family: var(--font-display); font-size: 3rem; color: var(--orange); display: block; margin-bottom: 12px; }
-.why-item h3 { font-size: 1.2rem; margin-bottom: 12px; }
-.why-item p { font-size: 0.95rem; line-height: 1.7; opacity: 0.75; }
-
 /* ============ Bundles ============ */
 .bundles { padding: 120px 0; text-align: center; }
 .bundle-toggle { display: inline-flex; gap: 0; margin-bottom: 50px; border: 2px solid var(--brown); border-radius: 999px; overflow: hidden; }
@@ -352,14 +297,6 @@ body.scrolled .nav-mini { transform: none; opacity: 1; }
 .marquee { display: flex; gap: 24px; width: max-content; animation: marquee 40s linear infinite; }
 .marquee:hover { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(-50%); } }
-.review-card {
-  width: 340px; flex-shrink: 0;
-  background: var(--ink-2); border: 1px solid var(--brown); border-radius: 20px;
-  padding: 28px;
-}
-.review-card .who { color: var(--gold); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; }
-.review-card .quote { font-family: var(--font-display); font-size: 1.1rem; text-transform: uppercase; line-height: 1.3; margin-bottom: 12px; }
-.review-card .body { font-size: 0.9rem; opacity: 0.75; line-height: 1.6; }
 
 /* ============ Footer ============ */
 footer { background: #0a0704; padding: 80px 0 30px; }
@@ -418,7 +355,7 @@ footer { background: #0a0704; padding: 80px 0 30px; }
 .page-hero .sub { margin-top: 18px; opacity: 0.75; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 
 /* ============ PDP ============ */
-.pdp-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 160px 0 80px; }
+.pdp-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 160px 0 80px; position: relative; }
 .pdp-bottle { position: relative; height: 560px; }
 .pdp-bottle img { position: absolute; inset: 0; margin: auto; height: 100%; object-fit: contain; transition: opacity 0.4s; }
 .pdp-bottle .back { opacity: 0; }
@@ -473,6 +410,17 @@ footer { background: #0a0704; padding: 80px 0 30px; }
   .nav-links { display: none; }
   .pdp-hero { grid-template-columns: 1fr; }
   .food-grid { grid-template-columns: 1fr; }
+  /* On mobile the full .nav-links are hidden, so surface the mini-nav (with its
+     burger) at all times instead of only after a 260px scroll. */
+  .nav, .nav--hero { display: none; }
+  .nav-mini { transform: none; opacity: 1; padding: 12px 16px; }
+  .nav-mini .pill-btn { padding: 12px 20px; font-size: 0.85rem; }
+  .nav-mini .icon-btn { width: 48px; height: 48px; font-size: 1.1rem; }
+  .antler-mark, .antler-mark img { width: 116px; }
+  .burger-menu { top: 82px; }
+}
+@media (max-width: 440px) {
+  .nav-mini .pill-btn { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .marquee { animation: none; }

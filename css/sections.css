@@ -182,10 +182,20 @@
 }
 .rev-card .q { font-family: var(--font-display); font-size: 2.6rem; line-height: 0.5; }
 .rev-dark {
-  background: #17110b url("../assets/antler-pattern.webp") repeat;
-  background-size: 71px 119px; background-blend-mode: soft-light;
+  background: #17110b;
   border: 1px solid rgba(245,228,199,0.75); color: var(--cream);
+  position: relative; overflow: hidden;
 }
+/* Slowly drifting antler texture overlay */
+.rev-dark::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: url("../assets/antler-pattern.webp");
+  background-repeat: repeat; background-size: 95px 158px; opacity: 0.1;
+  animation: antler-scroll 12s linear infinite;
+}
+.rev-dark > * { position: relative; z-index: 1; }
+@keyframes antler-scroll { from { background-position: 0 0; } to { background-position: 95px 0; } }
+@media (prefers-reduced-motion: reduce) { .rev-dark::before { animation: none; } }
 .rev-dark .rev-head {
   font-family: var(--font-display); font-size: 1.7rem; text-transform: uppercase; line-height: 1.1;
   color: transparent; -webkit-text-stroke: 1.2px var(--cream);
@@ -219,8 +229,36 @@
   width: 56px; height: 56px; border-radius: 50%;
   border: 1px solid var(--cream); background: none; color: var(--cream); font-size: 1.2rem;
 }
-.f-social { display: grid; place-items: center; font-size: 2rem; }
+.f-social { display: flex; gap: 20px; align-items: center; justify-content: center; }
+.f-social a {
+  width: 52px; height: 52px; border-radius: 50%;
+  display: grid; place-items: center; color: var(--cream);
+  border: 1px dashed rgba(245,228,199,0.45); transition: background 0.2s, color 0.2s;
+}
+.f-social a:hover { background: var(--cream); color: var(--ink); }
+.f-social svg { width: 24px; height: 24px; display: block; }
 .f-bottom { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; padding: 24px 8px 0; font-size: 0.85rem; opacity: 0.7; }
+.f-bottom a { text-decoration: underline; }
+
+/* ===== Free-from stack dimming (earlier cards recede as the next stacks) ===== */
+.ff-card { transition: filter 0.3s ease; }
+.ff-card.dimmed { filter: grayscale(0.6) brightness(0.75); }
+
+/* ===== Vertical letter-stack decorative labels ===== */
+.vert-label {
+  position: absolute; z-index: 3; pointer-events: none;
+  display: flex; flex-direction: column; align-items: center;
+  font-family: var(--font-display); text-transform: uppercase;
+  color: var(--gold); font-size: 0.9rem; letter-spacing: 0.14em;
+  line-height: 1.5; opacity: 0.85;
+}
+.vert-label span { display: block; }
+.vert-label .sp { height: 0.7em; }
+.ws-signup { position: relative; }
+.vert-label--why { left: clamp(8px, 3vw, 56px); top: 26vh; }
+.vert-label--pdp { left: -8px; top: 120px; }
+.vert-label--ws { left: 4vw; top: 96px; }
+@media (max-width: 1000px) { .vert-label { display: none; } }
 
 /* ===== Section exit shrink (approximation of live PIP transition) ===== */
 @supports (animation-timeline: view()) {

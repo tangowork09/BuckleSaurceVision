@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&family=Rye&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sections.css">
 </head>
 <body>
   <nav class="nav">
@@ -19,8 +20,25 @@
       <a href="faq.html">FAQ</a>
       <a href="#" data-cart-open>Cart(<span class="cart-count">0</span>)</a>
     </div>
-    
   </nav>
+
+  <!-- Scrolled / mobile mini-nav -->
+  <div class="nav-mini">
+    <a class="antler-mark" href="index.html"><img src="assets/bucks-logo.svg" alt="Bucks Sauce"></a>
+    <div class="nav-mini-right">
+      <a class="pill-btn" href="shop.html" style="text-decoration:none;display:inline-block;">Get Sauce</a>
+      <button class="icon-btn" data-cart-open aria-label="Cart">🧺</button>
+      <button class="icon-btn" id="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+  <div class="burger-menu" id="burger-menu">
+    <a href="shop.html">Shop</a>
+    <a href="wholesale.html">Wholesale</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="faq.html">FAQ</a>
+  </div>
+
 
   <header class="page-hero">
     <h1>Put It on Your Shelf.<br>Or Your Menu.</h1>
@@ -51,7 +69,8 @@
     <div class="marquee" id="marquee"></div>
   </section>
 
-  <section class="bundles" style="padding-top:20px;">
+  <section class="bundles ws-signup" style="padding-top:20px;">
+    <div class="vert-label vert-label--ws" data-vert="SIGN UP TODAY" aria-hidden="true"></div>
     <div class="wrap">
       <h2 class="section-title">Sign Up Today</h2>
       <div class="form-grid">
@@ -65,12 +84,33 @@
     </div>
   </section>
 
-  <footer>
-    <div class="wrap">
-      <div class="footer-bottom">
-        <div>© Bucks Sauce clone — local design study.</div>
-        <div class="footer-links"><a href="index.html">Home</a><a href="shop.html">Shop</a></div>
+  <!-- Footer -->
+  <footer class="footer2">
+    <div class="f-grid">
+      <div class="f-box f-logo"><img src="assets/bucks-logo.svg" alt="Bucks Sauce"></div>
+      <div class="f-box f-links">
+        <a href="shop.html">Shop</a>
+        <a href="wholesale.html">Wholesale</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
       </div>
+      <div class="f-box f-club">
+        <h2>Join the Bucks Club</h2>
+        <p>New flavors. Restocks. Fire recipes. Merch drops.</p>
+        <form class="f-mail" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Subscribed (demo).');">
+          <input type="email" placeholder="Your email..." required>
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+      </div>
+      <div class="f-box f-social">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.85c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <div>© 2026. Bucks Sauce Co. All rights reserved.</div>
+      <div>Website by <a href="https://buzzworthystudio.com" target="_blank" rel="noopener">Buzzworthy</a></div>
     </div>
   </footer>
 

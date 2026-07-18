@@ -61,19 +61,6 @@
   stage.addEventListener("pointerdown", () => clearInterval(auto), { once: true });
 })();
 
-/* ---------- Hero ingredient parallax ---------- */
-(function parallax() {
-  const items = document.querySelectorAll(".ingredient");
-  if (!items.length) return;
-  const speeds = [0.35, -0.25, 0.2, -0.4];
-  addEventListener("scroll", () => {
-    const y = scrollY;
-    items.forEach((el, i) => {
-      el.style.transform = `translateY(${y * speeds[i % speeds.length]}px) rotate(${y * 0.02 * (i % 2 ? -1 : 1)}deg)`;
-    });
-  }, { passive: true });
-})();
-
 /* ---------- Scroll-morph nav + burger ---------- */
 (function miniNav() {
   const mini = document.querySelector(".nav-mini");
@@ -298,5 +285,67 @@ function renderProductCards(targetId) {
     new IntersectionObserver((es, io) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.disconnect(); } }), { threshold: 0.1 }).observe(el);
   });
 }
+
+/* ---------- Free-from stack: dim cards once the next plate stacks over ---------- */
+(function ffStack() {
+  const cards = [...document.querySelectorAll(".ff-stack .ff-card")];
+  if (!cards.length) return;
+  const update = () => {
+    cards.forEach((c, idx) => {
+      const next = cards[idx + 1];
+      if (!next) { c.classList.remove("dimmed"); return; }
+      const covered = next.getBoundingClientRect().top < c.getBoundingClientRect().bottom - 12;
+      c.classList.toggle("dimmed", covered);
+    });
+  };
+  addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  update();
+})();
+
+/* ---------- Per-character stagger reveal on the main heading ---------- */
+(function headingReveal() {
+  const el = document.querySelector(".hero2-headline") || document.querySelector(".page-hero h1");
+  if (!el || el.classList.contains("arc-text") || el.dataset.split) return;
+  el.dataset.split = "1";
+  el.setAttribute("aria-label", el.textContent.replace(/\s+/g, " ").trim());
+  const spans = [];
+  const build = (src, dest) => {
+    src.childNodes.forEach((node) => {
+      if (node.nodeType === 3) {
+        [...node.textContent].forEach((ch) => {
+          const s = document.createElement("span");
+          s.setAttribute("aria-hidden", "true");
+          s.style.display = "inline-block";
+          s.style.whiteSpace = "pre";
+          s.textContent = ch === " " ? " " : ch;
+          spans.push(s);
+          dest.appendChild(s);
+        });
+      } else if (node.nodeType === 1) {
+        if (node.tagName === "BR") { dest.appendChild(document.createElement("br")); }
+        else { const clone = node.cloneNode(false); build(node, clone); dest.appendChild(clone); }
+      }
+    });
+  };
+  const frag = document.createDocumentFragment();
+  build(el, frag);
+  el.textContent = "";
+  el.appendChild(frag);
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  spans.forEach((s, i) => {
+    s.animate(
+      [{ opacity: 0, transform: "translateY(20px)" }, { opacity: 1, transform: "translateY(0)" }],
+      { duration: 520, delay: i * 40, easing: "cubic-bezier(.2,.7,.3,1)", fill: "backwards" }
+    );
+  });
+})();
+
+/* ---------- Vertical letter-stack decorative labels ---------- */
+document.querySelectorAll(".vert-label[data-vert]").forEach((el) => {
+  el.innerHTML = [...el.dataset.vert]
+    .map((c) => (c === " " ? '<span class="sp"></span>' : `<span>${c}</span>`))
+    .join("");
+});
 
 Cart.render();
